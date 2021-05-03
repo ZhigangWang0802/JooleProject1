@@ -173,7 +173,7 @@
     <Content Include="Images\toaster3.jpg" />
     <Content Include="Images\vaccum1.jpg" />
     <Content Include="Images\vaccum2.jpg" />
-    <Content Include="Images\vacuum3.jpg" />
+    <Content Include="Images\vaccum3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

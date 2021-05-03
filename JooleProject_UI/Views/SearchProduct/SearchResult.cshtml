@@ -293,29 +293,39 @@
 
 
 
-    $(".showMoving").mouseup(function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var fltVal = [];
-        var filInputs = document.getElementsByClassName("sliderValue");
-        var subCategory = "@Session["subCategory"]";
+    $(".showMoving").bind("mousedown", function () {
 
-        for (let i = 0; i < filInputs.length; i++) {
-            fltVal.push(filInputs[i].value);
-        }
 
-        console.log(fltVal);
+        $("body").bind("mouseup", function (event) {
 
-        $.post ("@Url.Action("Filter", "SearchProduct")",
-            {
-                fltVal: fltVal,
-                subCategory: subCategory
-            },
+            event.stopPropagation();
+            event.preventDefault();
+            var fltVal = [];
+            var filInputs = document.getElementsByClassName("sliderValue");
+            var subCategory = "@Session["subCategory"]";
 
-            function (page, status) {
-                $(".right-products").html(page);
+            for (let i = 0; i < filInputs.length; i++) {
+                fltVal.push(filInputs[i].value);
             }
-        );
+
+            console.log(fltVal);
+
+            $.post("@Url.Action("Filter", "SearchProduct")",
+                {
+                    fltVal: fltVal,
+                    subCategory: subCategory
+                },
+
+                function (page, status) {
+                    $(".right-products").html(page);
+                }
+            );
+
+            $(this).unbind("mouseup");
+
+        });
+
+
     })
 
 
