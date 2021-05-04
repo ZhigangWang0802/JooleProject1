@@ -1,7 +1,5 @@
 ﻿using JooleProject_DAL;
-//here use JooleProject than can use repository
 using JooleProject;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,23 +73,7 @@ namespace JooleService
             }
             return res;
         }
-        /*
-
-                public boolean LoginValidation(string username, string password)
-                {
-                    var allusers = uow.User.GetAll();
-
-                    foreach (var item in allusers)
-                    {
-                        if (item.name == username && item.password == password)
-                        {
-                            return true;
-                        }
-                    }
-
-                    return false;
-                }*/
-
+      
         public string GetCategoryBySubCategory(string subCategory)
         {
             var subCategories = uow.SubCategory.GetAll();

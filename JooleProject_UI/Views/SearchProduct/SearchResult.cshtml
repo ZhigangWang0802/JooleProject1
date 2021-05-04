@@ -2,13 +2,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml"; }
 <head>
 
-
-
-
     <link href="~/Content/jquery-ui.css" rel="stylesheet" />
     <link href="~/Content/jquery-ui.structure.css" rel="stylesheet" />
     <link href="~/Content/jquery-ui.theme.css" rel="stylesheet" />
-
     <style>
         .collapsible {
             background: none;
@@ -63,15 +59,10 @@
                 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             }
 
-
-
         .ui-state-default, .ui-widget-content .ui-state-default {
             background-color: aqua;
             border-radius: 20px;
         }
-
-
-
 
         .ui-state-active, .ui-widget-content .ui-state-active {
             border: none;
@@ -81,7 +72,6 @@
     </style>
 
 </head>
-
 
 <h3>SearchResult</h3>
 
@@ -123,7 +113,6 @@
                 <h4 style="display:inline">&nbsp;&nbsp;-&nbsp;&nbsp;</h4>
                 <input type="number" style="display:inline; width: 70px" />
             </div>
-
             <div style="width: 100%">
                 <button class="collapsible" style="width: 100%; cursor: pointer; text-align: left;" :after>Technical Specifications</button>
                 <div class="content">
@@ -137,20 +126,14 @@
                 <div style="margin: 10px">
                     <input type="number" class="sliderValue" data-index=@a value=@entry.Value[0] style="display: inline-block; border:hidden; width: 20%" min="@entry.Value[0]" max="@entry.Value[1]" />
                     @{a++;}
-
-                    <div id="slider" class="showMoving" style="display: inline-block; width: 50%; margin-left:10px; margin-right:10px"></div> 
-                    
-
+                    <div id="slider" class="showMoving" style="display: inline-block; width: 50%; margin-left:10px; margin-right:10px"></div>                    
                     <input type="number" class="sliderValue" data-index=@a value=@entry.Value[1] style="display: inline-block; border:hidden; width: 20%" min="@entry.Value[0]" max="@entry.Value[1]" />
                     @{a++;}
                 </div>
-            </div> } }
-                    
+            </div> } }                   
                 </div>
             </div>
         </div>
-
-
         <div class="right" style="margin-left: 5px; display:inline-block; vertical-align: top; width: 65%">
             <div class="right-header">
                 <p><b>@Session["categoryName"]</b> > @Session["subCategory"] </p>
@@ -176,19 +159,13 @@
             <div>
                 <button type="submit" id="cmpbtn" style="margin-top: 10px;">Compare</button>
             </div>
-
         </div>
     </div>
 </div>
 
-
-
-
-
 <script>
     var coll = document.getElementsByClassName("collapsible");
     var i;
-
     for (i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function () {
             this.classList.toggle("active");
@@ -204,19 +181,16 @@
     $("#cmpbtn").click(function () {
         var productsID = [];
         var checkboxs = document.getElementsByClassName("product-checkbox");
-
         for (let i = 0; i < checkboxs.length; i++) {
             if (checkboxs[i].checked) {
                 productsID.push(checkboxs[i].id);
             }
         }
-
         console.log("productsID:", productsID);
         $.post("@Url.Action("Compare", "SearchProduct")",
             {
                 productsId: productsID
             },
-
             function (page, status) {
 
                 var w = window.open('about:blank');
@@ -264,20 +238,15 @@
     });
 
     var dive = $(".right-products");
-
     console.log(dive);
-
     $("#fltbtn").click(function () {
         var fltVal = [];
         var filInputs = document.getElementsByClassName("sliderValue");
         var subCategory = "@Session["subCategory"]";
-
         for (let i = 0; i < filInputs.length; i++) {
             fltVal.push(filInputs[i].value);
         }
-
         console.log(fltVal);
-
         $.post ("@Url.Action("Filter", "SearchProduct")",
             {
                 fltVal: fltVal,
@@ -289,50 +258,28 @@
             }
         );
     })
-
-
-
-
     $(".showMoving").bind("mousedown", function () {
-
-
         $("body").bind("mouseup", function (event) {
-
             event.stopPropagation();
             event.preventDefault();
             var fltVal = [];
             var filInputs = document.getElementsByClassName("sliderValue");
             var subCategory = "@Session["subCategory"]";
-
             for (let i = 0; i < filInputs.length; i++) {
                 fltVal.push(filInputs[i].value);
             }
-
             console.log(fltVal);
-
             $.post("@Url.Action("Filter", "SearchProduct")",
                 {
                     fltVal: fltVal,
                     subCategory: subCategory
                 },
-
                 function (page, status) {
                     $(".right-products").html(page);
                 }
             );
-
             $(this).unbind("mouseup");
-
         });
-
-
     })
-
-
-
-
-
-
-
 </script>
 

@@ -1,37 +1,26 @@
 ﻿@model IEnumerable<JooleProject_DAL.Category>
 @using JooleProject_DAL
 
-
-
-
-
 <form id="SearchForm">
     <div class="search-container">
-
         <select id="Category_ID" class="category-list">
             <option value="" selected hidden>Category</option>
             @foreach (var category in Model)
             {
                 <option value="@category.Category_ID">@category.Category_Name</option>
             }
-
-
         </select>
-
         <select id="SubCategory_ID" class="subcategory-list">
             <option value="" selected hidden>Search...</option>
         </select>
-
         <button type="reset" id="search-btn" class="submitbutton"><i class="fa fa-search"></i></button>
     </div>
 </form>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
         $(document).ready(function () {
             $("#Category_ID").change(function () {
-                // get subcategory name
                 let categoryid = $(this).val();
                 console.log(categoryid);
                 $.get("@Url.Action("GetSubCategoryName", "Search")", { categoryid: categoryid }, function (data, response) {
@@ -43,29 +32,20 @@
                         $("#SubCategory_ID").append("<option>" + res[i] + "</option>");
                     }
                 });
-
-                let page = '@Session["page"]';
-              
+                let page = '@Session["page"]';           
             });
-
-
-
         });
 
         $("#search-btn").click(function () {
-
             let subcategoryname = $("#SubCategory_ID option:selected").text();
          
             if (subcategoryname != "Search...") {
-                let page = '@Session["page"]';
-             
-
+                let page = '@Session["page"]';            
                 let url = "/SearchProduct/SearchResult?subCategory=" + subcategoryname;
                 window.location.href = url;
             } else {
                 alert("Pleash Select a Subcategory!!");
             }
-
         });
 </script>
 

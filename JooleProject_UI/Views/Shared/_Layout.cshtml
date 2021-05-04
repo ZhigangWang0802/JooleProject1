@@ -9,18 +9,10 @@
     <title>@ViewBag.Title - Joole Company</title>
 
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @*@Styles.Render("~/Content/SearchResult") *@
-    
-
-
-
-    @*<script src="~/Scripts/jquery-3.6.0.js"></script>@ *@
+    @Scripts.Render("~/bundles/modernizr")    
     <link href="~/Content/jquery-ui.theme.css" rel="stylesheet" />
     <link href="~/Content/jquery-ui.structure.css" rel="stylesheet" />
     <link href="~/Content/jquery-ui.css" rel="stylesheet" />
-    
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/Content/JoolyStyles/SearchBar.css" rel="stylesheet" />
     <link href="~/Content/JoolyStyles/SearchResult.css" rel="stylesheet" />
@@ -30,22 +22,15 @@
         <div class="search-header-logo" style="display:inline-block; width: 33%;">
             <img style="width: 50%; padding-left: 50px" src="@Url.Content("~/Images/jooleLogo.png")" />
         </div>
-
-
         <div class="search-header-searchbar" style="display:inline-block; width: 33%; text-align: center;">
-
-
             @Html.Partial("_SearchBar")
-
         </div>
-
         <div class="search-header-logo" style="display:inline-block; width: 33%; text-align:right; padding-right: 50px;">
             <img id="output_image" class="imageelement" style="border: none; background-color: grey; border-radius: 50%; max-width: 180px; max-height: 180px; width: 60px; height: 60px;">
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>

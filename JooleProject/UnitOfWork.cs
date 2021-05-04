@@ -18,7 +18,7 @@ namespace JooleProject
         public IPropertyRepo Property;
         public ICategoryRepo Category;
         public IPropertyValueRepo PropertyValue;
-        /*public IUserRepo user;*/
+        
 
         public UnitOfWork(DbContext context)
         {
@@ -30,7 +30,7 @@ namespace JooleProject
             Property = new PropertyRepo(Context);
             PropertyValue = new PropertyValueRepo(Context);
             Category = new CategoryRepo(Context);
-            /*user = new UserRepo(Context);*/
+            
         }
         public void SaveChanges()
         {

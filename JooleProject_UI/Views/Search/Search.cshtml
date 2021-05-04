@@ -1,11 +1,8 @@
 ﻿@model IEnumerable<JooleProject_DAL.Category>
 @using JooleProject_DAL
-
-
 @{ Layout = null; }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -25,21 +22,16 @@
 
         .img-container {
             position: relative;
-            /*top: 350px;*/
             text-align: center;
         }
 
         h1 {
             position: relative;
-            /*top: 350px;*/
         }
 
         .searchpage-container {
             display: block;
-            /*position: relative;*/
             text-align: center;
-            /*margin: auto;*/
-            /*vertical-align: middle;*/
             height: 40%;
         }
 
@@ -48,8 +40,6 @@
         }
 
         #SearchForm {
-            /*position: relative;*/
-            /*top: 350px;*/
             max-width: 450px;
             margin: auto;
             text-align: center;
@@ -60,7 +50,6 @@
             color: rgb(49, 0, 128);
             width: 70px;
             text-align: left;
-            /*text-align: right;*/
         }
 
         .submitbutton {
@@ -114,9 +103,7 @@
         <div class="img-container">
             <input type="image" id="joole" alt="joole" class="joole" src="~/Images/jooleLogo.png">
         </div>
-
         <h1 style="text-align:center;font-size:25px;font-weight:normal">Building Product Selection Platform</h1>
-
          @Html.Partial("_SearchBar") 
     </div>
 </body>

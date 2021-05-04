@@ -10,14 +10,11 @@ namespace JooleProject_UI.Controllers
 {
     public class SearchController : Controller
     {
-
         [ChildActionOnly]
         public PartialViewResult _SearchBar()
         {
             Service service = new Service();
             List<Category> categories = service.GetAllCategory();
-            // identify which page now we are in
-
             return PartialView(categories);
         }
 
@@ -25,18 +22,14 @@ namespace JooleProject_UI.Controllers
         {
             Service service = new Service();
             List<Category> categories = service.GetAllCategory();
-            // identify which page now we are in
             Session["page"] = "Search";
             return View(categories);
         }
-
-       
 
         public ActionResult GetSubCategoryName(int categoryid)
         {
             Service service = new Service();
             List<SubCategory> subcategories = service.GetAllSubcategoryByCategoryID(categoryid);
-            /*return Json(subcategories, JsonRequestBehavior.AllowGet);*/
             string output = "";
             foreach (var item in subcategories)
             {
@@ -45,7 +38,6 @@ namespace JooleProject_UI.Controllers
             int index = output.LastIndexOf(",");
             output = output.Remove(index, 1);
             return Content(output);
-
         }
     }
 }

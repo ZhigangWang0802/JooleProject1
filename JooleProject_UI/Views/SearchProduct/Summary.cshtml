@@ -4,9 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-
 <head>
     <style>
         table, td, th {
@@ -47,8 +44,7 @@
     <div class="left" style="display: inline-block; width: 45%">
         <div class="description-table">
             <p>DESCRIPTION</p>
-            <table>
-                
+            <table>               
                 @{ foreach (KeyValuePair<string, string> entry in @ViewBag.productDetails["DESCRIPTION"])
                                 {
                                     if (entry.Key != "Product Image")
@@ -63,7 +59,6 @@
         <div class="type-table">
             <p>TYPE</p>
             <table>
-
                 @{ foreach (KeyValuePair<string, string> entry in @ViewBag.productDetails["TYPE"])
                     {
                         <tr>
@@ -77,8 +72,7 @@
     <div class="right" style="display: inline-block; vertical-align: top; width: 45%">
         <div class="tech-sepc-table">
             <p>TECHNICAL SPECIFICATIONS</p>
-            <table>
-                
+            <table>           
                 @{ foreach (KeyValuePair<string, string> entry in @ViewBag.productDetails["TECHNICAL SPECIFICATIONS"])
                                 {
                     <tr>
@@ -88,5 +82,4 @@
             </table>
         </div>
     </div>
-
 </div>

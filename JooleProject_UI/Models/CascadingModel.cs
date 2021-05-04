@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-
 namespace JooleProject_UI.Models
 {
     public class CascadingModel
@@ -14,10 +13,8 @@ namespace JooleProject_UI.Models
             this.Categories = new List<SelectListItem>();
             this.SubCategories = new List<SelectListItem>();
         }
-
         public List<SelectListItem> Categories { get; set; }
         public List<SelectListItem> SubCategories { get; set; }
-
         public int Category_ID { get; set; }
         public int SubCategory_ID { get; set; }
     }

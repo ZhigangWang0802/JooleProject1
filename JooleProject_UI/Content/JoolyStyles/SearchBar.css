@@ -3,8 +3,6 @@
 }
 
 #SearchForm {
-    /*position: relative;*/
-    /*top: 350px;*/
     max-width: 450px;
     margin: auto;
     text-align: center;
@@ -15,7 +13,6 @@
     color: rgb(49, 0, 128);
     width: 70px;
     text-align: left;
-    /*text-align: right;*/
 }
 
 .submitbutton {
