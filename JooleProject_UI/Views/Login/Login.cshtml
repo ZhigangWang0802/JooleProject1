@@ -19,35 +19,34 @@
     <div class="loginform">
         @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
         {
-            <div class="inputContainer">
-                <i class="fa fa-user icon"> </i>              
-                @Html.TextBoxFor(model => model.User_Name, new
-                {
-                    style = "width:450px;margin-bottom:15px;margin:auto;" +
-                    "padding:10px;border-radius:4px;text-align:left;font-size:20px;font-weight:500;",
-                    placeholder = "Username Or Email"
-                })
-                @Html.ValidationMessageFor(model => model.User_Name)
+<div class="inputContainer">
+    <i class="fa fa-user icon"> </i>
+    @Html.TextBoxFor(model => model.User_Name, new
+    {
+        style = "width:450px;margin-bottom:15px;margin:auto;" +
+                 "padding:10px;border-radius:4px;text-align:left;font-size:20px;font-weight:500;",
+        placeholder = "Username Or Email"
+    })
+    @Html.ValidationMessageFor(model => model.User_Name)
 
-            </div>
+</div>
 
-            <div class="inputContainer">
-                <i class="fa fa-lock icon"> </i>
-                @Html.PasswordFor(model => model.User_Password, new
-                {
-                    style = "width:450px;margin-bottom:15px;margin:auto;" +
-                    "padding:10px;border-radius:4px;text-align:left;font-size:20px;font-weight:500;",
-                    placeholder = "Password"
-                })
-                @Html.ValidationMessageFor(model => model.User_Password)
+                <div class="inputContainer">
+                    <i class="fa fa-lock icon"> </i>
+                    @Html.PasswordFor(model => model.User_Password, new
+                    {
+                        style = "width:450px;margin-bottom:15px;margin:auto;" +
+                                  "padding:10px;border-radius:4px;text-align:left;font-size:20px;font-weight:500;",
+                        placeholder = "Password"
+                    })
+                    @Html.ValidationMessageFor(model => model.User_Password)
 
-            </div>
-            <div class="inputContainer">
-                <label>@Html.DisplayFor(model => model.LoginErrorMessage)</label>
-            </div>
+                </div>
+                                <div class="inputContainer">
+                                    <label>@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                                </div>
 
-            <input class="loginbutton" type="submit" value="Log In" />
-        }
+                                                <input class="loginbutton" type="submit" value="Log In" />}
     </div>
     <!-- Trigger/Open The Modal -->
     <button id="myBtn">Sign Up</button>
@@ -55,54 +54,66 @@
     <!-- The Modal -->
     <div id="myModal" class="modal">
         @using (Html.BeginForm("Signup", "Login", FormMethod.Post, new { @class = "modal-content" }))
-        {           
-            <span class="close" id="circle">&times;</span>
-            <h2 style="font-size: 22px; font-weight: normal">Register as User</h2>
-            <hr>
-            <table>
-                @*image here*@
-                <tr>
-                    <td></td>
-                    <td><label for="avatar" class="imageelement"><b>Image Preview</b></label></td>
-                </tr>
+        {
+    <span class="close" id="circle">&times;</span>
+    <h2 style="font-size: 22px; font-weight: normal">Register as User</h2>
+        <hr>
+        <table>
+            @*image here*@
+            <tr>
+                <td></td>
+                <td><label for="avatar" class="imageelement"><b>Image Preview</b></label></td>
+            </tr>
 
-                <tr>
-                    <td></td>
-                    <td><img id="output_image" class="imageelement"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label for="avatar" class="imageelement"><b>Your Profile Pic</b></label></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="file" class="imageelement" accept="image/*" onchange="preview_image(event)"></td>
-                </tr>
-                <tr>
-                    <td><label for="name"><b>UserName:</b></label></td>
-                    <td>@Html.TextBoxFor(model => model.User_Name, new { @class = "field", placeholder = "User Name" })</td>
-                    <td>@Html.ValidationMessageFor(model => model.User_Name)</td>
-                </tr>
-                <tr>
-                    <td><label for="email"><b>Email Address:</b></label></td>
-                    <td>@Html.TextBoxFor(model => model.User_Email, new { @class = "field", placeholder = "Email Id" })</td>
-                    <td>@Html.ValidationMessageFor(model => model.User_Email)</td>
-                </tr>
-                <tr>
-                    <td><label for="password"><b>Password:</b></label></td>
-                    <td>@Html.PasswordFor(model => model.User_Password, new { @class = "field", placeholder = "Password" })</td>
-                    <td>@Html.ValidationMessageFor(model => model.User_Password)</td>
-                </tr>
-                <tr>
-                    <td><label for="password"><b>Confirm Password:</b></label></td>
-                    <td><input type="password" placeholder="Password" class="field" required></td>
-                    <td></td>
-                </tr>
-            </table>
-            <hr>
-            <input class="signupbutton" type="submit" value="Sign up" />
-        }
+            <tr>
+                <td></td>
+                <td><img id="output_image" class="imageelement"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><label for="avatar" class="imageelement"><b>Your Profile Pic</b></label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="file" class="imageelement" accept="image/*" onchange="preview_image(event)"></td>
+            </tr>
+            <tr>
+                <td><label for="name"><b>UserName:</b></label></td>
+                <td>@Html.TextBoxFor(model => model.User_Name, new { @class = "field", placeholder = "User Name", required = "required" })</td>
+                <td>@Html.ValidationMessageFor(model => model.User_Name)</td>
+            </tr>
+            <tr>
+                <td><label for="email"><b>Email Address:</b></label></td>
+                <td>@Html.TextBoxFor(model => model.User_Email, new { @class = "field", placeholder = "Email Id", required = "required" })</td>
+                <td>@Html.ValidationMessageFor(model => model.User_Email)</td>
+            </tr>
+            <tr>
+                <td><label for="password"><b>Password:</b></label></td>
+                <td>@Html.PasswordFor(model => model.User_Password, new { @class = "field", placeholder = "Password", id = "password", required = "required" })</td>
+                <td>@Html.ValidationMessageFor(model => model.User_Password)</td>
+            </tr>
+
+
+            <tr>
+                <td><label for="confirmpassword"><b>Confirm Password:</b></label></td>
+                <td>@Html.PasswordFor(model => model.User_ConfirmPassword, new { @class = "field", placeholder = "ConfirmPassword",  required = "required" ,id = "confirmpassword" })</td>
+                <td>@Html.ValidationMessageFor(model => model.User_ConfirmPassword)</td>
+            </tr>
+
+
+
+
+
+            
+        </table>
+    <hr>
+    <input class="signupbutton" type="submit" value="Sign up" />}
     </div>
+
+
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+
     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
@@ -135,7 +146,33 @@
             }
             reader.readAsDataURL(event.target.files[0]);
         }
+
+        $("#confirmpassword").keyup(function () {
+            $("#confirmpassword").next("i").remove();
+            if ($("#confirmpassword").val() != $("#password").val()) {
+                console.log(123);
+
+
+                $("#confirmpassword").after(`<i style="color: red;">Password not match<i>`);
+
+            }else {
+            $("#confirmpassword").next("i").remove();
+        }
+
+
+      
+
+     });
+
+
+
+
+
+
     </script>
+
+
+
 </body>
 </html>
 

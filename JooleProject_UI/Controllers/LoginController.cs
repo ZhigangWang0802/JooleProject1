@@ -45,13 +45,18 @@ namespace JooleProject_UI.Controllers
                 {
                     User_Name = obj.User_Name,
                     User_Email = obj.User_Email,
-                    User_Password = obj.User_Password,                                              
+                    User_Password = obj.User_Password,    
+                    User_ConfirmPassword = obj.User_ConfirmPassword,
                 };
-                databaseContext.User.Add(user);
-                databaseContext.SaveChanges();
+                if(user.User_Password == user.User_ConfirmPassword) {
+                    databaseContext.User.Add(user);
+                    databaseContext.SaveChanges();
+                    return View("Login");
+                }
+                
             }
             ViewBag.Message = "User Details Saved";
-            return View("Login");
+            return Content("Sign Up Failed Please Return Signup Page");
         }
     }
 }
